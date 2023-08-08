@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 const backstory = [
-  '🎮 In the heart of the digital realm, three playful characters emerged...',
-  '🤝 The game unfolded, echoing with cheers and excitement...',
-  '🏆 As the dust settled, a victor emerged, celebrated by the virtual crowd...',
-  '🌐 And so, as the digital sun set, the memory of their epic contest lingered...',
-  '😎 Be ready this is the last round',
+  "🎮 In the heart of the digital realm, three playful characters emerged...",
+  "🤝 The game unfolded, echoing with cheers and excitement...",
+  "🏆 As the dust settled, a victor emerged, celebrated by the virtual crowd...",
+  "🌐 And so, as the digital sun set, the memory of their epic contest lingered...",
+  "😎 Be ready this is the last round",
 ];
 
 let backstoryIndex = 0;
@@ -17,7 +17,7 @@ function displayBackstory() {
 
 //Function for computer play(random selection)
 function computerPlay() {
-  const choices = ['rock', 'paper', 'scissors'];
+  const choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
@@ -32,14 +32,14 @@ function getPlayerChoice() {
 
     if (playerChoice === null) {
       // Handle the cancel case
-      alert('You clicked Cancel. Please enter a choice.');
+      alert("You clicked Cancel. Please enter a choice.");
     } else {
       playerChoice = playerChoice.toLowerCase(); // Convert to lowercase
-      if (!['rock', 'paper', 'scissors'].includes(playerChoice)) {
+      if (!["rock", "paper", "scissors"].includes(playerChoice)) {
         alert("Oops! This is not one of 'rock', 'paper', or 'scissors'🧨");
       }
     }
-  } while (!['rock', 'paper', 'scissors'].includes(playerChoice));
+  } while (!["rock", "paper", "scissors"].includes(playerChoice));
 
   return playerChoice;
 }
@@ -49,9 +49,9 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "It's a tie! 🤝";
   } else if (
-    (playerSelection === 'rock' && computerSelection === 'scissors') ||
-    (playerSelection === 'paper' && computerSelection === 'rock') ||
-    (playerSelection === 'scissors' && computerSelection === 'paper')
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
   ) {
     return `You win 📣! ${playerSelection} beats ${computerSelection}.`;
   } else {
@@ -76,39 +76,41 @@ function game() {
     const roundResult = playRound(playerSelection, computerSelection);
     console.log(roundResult);
 
-    if (roundResult.includes('win')) {
+    if (roundResult.includes("win")) {
       playerScore++;
-    } else if (roundResult.includes('lost')) {
+    } else if (roundResult.includes("lost")) {
       computerScore++;
     }
 
     console.log(
       `Player Score : ${playerScore} | Computer Score: ${computerScore}`
     );
+    console.log("-------------------------------");
+    console.log("-------------------------------");
   }
 
   if (playerScore > computerScore) {
-    console.log('Congratulations! You won the game! 🏆🥇🎉');
+    console.log("Congratulations! You won the game! 🏆🥇🎉");
   } else if (playerScore < computerScore) {
-    console.log('Sorry, you lost the game! 🧨🧨 But it was a nice try!');
+    console.log("Sorry, you lost the game! 🧨🧨 But it was a nice try!");
   } else {
-    console.log('The game ends in a tie! 🤝');
+    console.log("The game ends in a tie! 🤝");
   }
 }
 
 game();
 
 //Start a new game
-const newGame = prompt('Do you want to play again? (yes or no)🏁🤜🫲✌️');
+const newGame = prompt("Do you want to play again? (yes or no)🏁🤜🫲✌️");
 
 if (newGame !== null) {
   // Check if newGame is not null
   const lowerCaseNewGame = newGame.toLowerCase();
-  if (lowerCaseNewGame === 'yes') {
+  if (lowerCaseNewGame === "yes") {
     location.reload();
   } else {
-    console.log('Thank you for playing!');
+    console.log("Thank you for playing!");
   }
 } else {
-  console.log('Thank you for playing!');
+  console.log("Thank you for playing!");
 }
