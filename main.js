@@ -25,15 +25,22 @@ function computerPlay() {
 function getPlayerChoice() {
   let playerChoice;
 
-  //making input insensitive for upper/lowercases
   do {
     playerChoice = prompt(
       "Hey! This is a fun game on Rock 🤜, Paper 🫲 and Scissors ✌️.\nLet's begin!!! 🏁🏁🏁 \nWrite EITHER Rock, Paper, or Scissors and press 🆗 please!\nYou need to do this 5 times! GOOD LUCK!"
-    ).toLowerCase();
-    if (!['rock', 'paper', 'scissors'].includes(playerChoice)) {
-      alert("Uups! This is not one of 'rock', 'paper', or 'scissors'🧨");
+    );
+
+    if (playerChoice === null) {
+      // Handle the cancel case
+      alert('You clicked Cancel. Please enter a choice.');
+    } else {
+      playerChoice = playerChoice.toLowerCase(); // Convert to lowercase
+      if (!['rock', 'paper', 'scissors'].includes(playerChoice)) {
+        alert("Oops! This is not one of 'rock', 'paper', or 'scissors'🧨");
+      }
     }
   } while (!['rock', 'paper', 'scissors'].includes(playerChoice));
+
   return playerChoice;
 }
 
